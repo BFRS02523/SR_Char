@@ -66,7 +66,7 @@ export default function MessageBox(props: any) {
         if (res) {
           props.setMessages((prevState:any) => [
             ...prevState,
-            { text: res.data, from: 0 },
+            { text: res.data.message, from: 0 },
           ]);
           setIsMsgLoading(false);
         } else {
