@@ -1,0 +1,288 @@
+.chat-circle:after{
+  content: "";
+  height: 100px;
+  width: 100px;
+  background-color: #4f518c63;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse{
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.message-notification{
+  font-size: 10px;
+  background-color:#f52828 ;
+  padding: 3px;
+  line-height: 13px;
+  border-radius: 50%;
+  top: 0px;
+  height: 15px;
+  width: 15px;
+  right: 10px;
+}
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Add fade-up animation */
+}
+.fade-out{
+  animation: fadeOut 0.5s ease-in-out;
+}
+.fade-in{
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px); /* Adjust the distance to move the element upwards */
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Adjust the distance to move the element upwards */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.chatbox{
+  height: 60vh;
+  background-color:white;
+  color: #2C2A4A;
+  transform: translateX(-400px) translateY(-100%);
+  min-width: 400px;
+  border-radius: 7px;
+}
+.header{
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.msg-box{
+  font-size: 12px !important;
+}
+
+.typing {
+  position: relative;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.typing__dot {
+  float: left;
+  width: 4px;
+  height: 4px;
+  margin: 0 4px;
+  background: #4F518C;
+  border-radius: 50%;
+  opacity: 0;
+  animation: loadingFade 1s infinite;
+}
+
+.typing__dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing__dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing__dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  .section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section:nth-child(odd) {
+    background: url('https://cdn.pixabay.com/photo/2020/10/17/11/55/elephants-5661842_1280.jpg') no-repeat center center;
+    background-size: cover;
+    animation: zoomInOut 10s infinite alternate;
+  }
+  .section:nth-child(even) {
+    background: url('https://cdn.pixabay.com/photo/2020/12/23/14/41/forest-5855196_1280.jpg') no-repeat center center;
+    background-size: cover;
+    animation: zoomInOut 10s infinite alternate;
+  }
+  @keyframes zoomInOut {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes zoom-in {
+    from { transform: scale(1.2); }
+    to { transform: scale(1); }
+  }
+  .menu {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+  .menu a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+  }
+  .menu a:hover {
+    color: #b80257;
+  }
+  .menu .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  #home .title {
+    animation: drop-from-top 1s ease forwards;
+  }
+  #about .title {
+    animation: drop-from-top 1s ease forwards;
+  }
+  #contact .title {
+    animation: drop-from-top 1s ease forwards;
+  }
+  #code .title {
+    animation: drop-from-top 1s ease forwards;
+  }
+  @keyframes drop-from-top {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+  .contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center; /* Center the form */
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .contact-form textarea {
+    height: 150px;
+  }
+  .contact-form input[type="submit"] {
+    background: #b80257;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .fade-in-out-text {
+    display: none;
+    animation: fadeInOut 3s infinite;
+  }
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .social-icons a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+  }
+  .social-icons a:hover {
+    color: #b80257;
+  }
+  .code-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 400px;
+  }
+  .code-line {
+    animation: coding 2s infinite alternate;
+  }
+  @keyframes coding {
+    from { width: 0; }
+    to { width: 100%; }
+  }
