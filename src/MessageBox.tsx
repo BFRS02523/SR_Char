@@ -66,7 +66,7 @@ export default function MessageBox(props: any) {
         if (res.data.message) {
           props.setMessages((prevState:any) => [
             ...prevState,
-            { text: res.data.message, from: 0 },
+            { text: res.data.message.replace(/\n/g, '<br>'), from: 0 },
           ]);
           setIsMsgLoading(false);
         } else {
@@ -155,13 +155,13 @@ const Messages = ({ msg }: any) => {
 
           <div className="flex justify-start max-w-[80%] text-sm p-2 bg-[#DABFFF] relative rounded-md">
             <i className="fa-solid fa-caret-left text-[#DABFFF] absolute left-[3px] translate-x-[-100%] bottom-2 text-xl"></i>
-            <span className="msg-box">{msg.text}</span>
+            <span className="msg-box" dangerouslySetInnerHTML={{ __html: msg.text }}></span>
           </div>
         </div>
       ) : (
         <div className="flex justify-end">
           <div className="flex flex-end justify-end max-w-[80%] text-sm p-2 bg-[#4F518C] relative rounded-md">
-            <span className="text-white  msg-box">{msg.text}</span>
+            <span className="text-white  msg-box">{`${msg.text}`}</span>
 
             <i className="fa-solid fa-caret-right text-[#4F518C] absolute right-[-16px] translate-x-[-100%] bottom-0 text-xl"></i>
           </div>
