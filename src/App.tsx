@@ -46,7 +46,7 @@ function App() {
   return (
     <div className='' >
       <Website/>
-        <div className='absolute bottom-4 right-4 h-20 w-20' ref={ref}>
+        <div className='fixed bottom-4 right-4 h-20 w-20' ref={ref}>
         <div className='absolute bottom-4 right-4 h-20 w-20 rounded-full bg-[#2C2A4A] text-white flex justify-center items-center text-2xl chat-circle cursor-pointer' onClick={()=>{
           setIsChatOpen(prevState => !prevState)
         }}>
