@@ -63,7 +63,7 @@ export default function MessageBox(props: any) {
       setUserInput("");
       setIsMsgLoading(true); // Show loading indicator
       ApiCall(userInput).then((res) => {
-        if (res) {
+        if (res.data.message) {
           props.setMessages((prevState:any) => [
             ...prevState,
             { text: res.data.message, from: 0 },
