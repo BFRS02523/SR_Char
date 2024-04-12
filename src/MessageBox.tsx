@@ -63,7 +63,7 @@ export default function MessageBox(props: any) {
       setUserInput("");
       setIsMsgLoading(true); // Show loading indicator
       ApiCall(userInput).then((res) => {
-        if (res.data.message) {
+        if (res?.data?.message) {
           props.setMessages((prevState:any) => [
             ...prevState,
             { text: res.data.message.replace(/\n/g, '<br>'), from: 0 },
@@ -85,7 +85,7 @@ export default function MessageBox(props: any) {
   };
   return (
     <>
-      <div className="shadow-lg absolute top-0 left-0 chatbox rounded-lg">
+      <div className="shadow-lg lg:absolute  md:absolute  sm:absolute lg:top-0 lg:left-0 chatbox rounded-lg xs:fixed xs:bottom-0 xs:right-0 flex flex-col md:top-0 md:left-0 sm:top-0 sm:left-0">
         <div className="header flex justify-between bg-[#4F518C] text-white p-3 rounded-md">
           <span className="text-sm">
             <i className="fa-solid fa-robot"></i> ShipMate
@@ -100,7 +100,7 @@ export default function MessageBox(props: any) {
         </div>
 
         <div
-          className="body  max-h-[77%] min-h-[77%] p-3 flex flex-col gap-2 overflow-y-auto"
+          className="body p-3 flex flex-col gap-2 overflow-y-auto flex-1"
           ref={bodyRef}
         >
           {props.messages.map((msg:any) => {

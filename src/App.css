@@ -76,6 +76,12 @@
   transform: translateX(-400px) translateY(-100%);
   min-width: 400px;
   border-radius: 7px;
+  z-index: 99999999999;
+}
+@media screen and (max-width: 468px){
+  .chatbox{
+    transform: none;
+  }
 }
 .header{
   border-bottom-left-radius: 0px;
@@ -151,11 +157,11 @@
     background-size: cover;
     animation: zoomInOut 10s infinite alternate;
   }
-  @keyframes zoomInOut {
+  /* @keyframes zoomInOut {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
-  }
+  } */
   @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -169,7 +175,8 @@
     top: 50%;
     right: 50px;
     transform: translateY(-50%);
-    z-index: 1000;
+    z-index: 1;
+    display: none;
   }
   .menu a {
     display: block;
